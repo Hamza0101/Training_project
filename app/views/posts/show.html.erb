@@ -1,0 +1,42 @@
+<%
+=begin%>
+ <p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @post.description %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post), class:"btn btn-secondary" %> |
+<%= link_to 'Back', posts_path, class:"btn btn-secondary" %>
+
+<%
+=end%>
+
+
+<div class="container">
+  <div class="jumbotron">
+    <%= link_to image_tag @post.post_image , class: 'img-fluid' if @post.post_image.attached? %>
+    <h1 class="display-6"><%= @post.title %></h1>
+    <p class="lead"><%= @post.description %></p>
+    <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-secondary" %> |
+    <%= link_to 'Back', posts_path, class:"btn btn-secondary" %>
+    <h4><%= @post.comments_count %> Comments </h4>
+    <%= render @post.comments %>
+
+
+    <%= render "comments/form" %>
+       </div>
+       </div>
+
+
+
+
+
+  </div>
+</div>
